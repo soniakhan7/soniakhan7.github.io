@@ -3,8 +3,8 @@ html,body{
   height:100%
 }
 body {
-  background: #112 url(//dl.dropboxusercontent.com/s/7nx66eqn2cs4yeo/brick.png)  center;
-  background-repeat: repeat-x;
+  background: #112 url(//dl.dropboxusercontent.com/s/7nx66eqn2cs4yeo/brick.png) center;
+  background-repeat: repeat-x
   background-size:cover;
   margin:0
 }
