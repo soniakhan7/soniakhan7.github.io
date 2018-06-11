@@ -1,6 +1,6 @@
 <html>
 <head>
-<meta name="description" content="tour latest 06/10/18">
+<meta name="description" content="tour latest">
 	<!-- Leaflet -->
    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css"
    integrity="sha512-07I2e+7D8p6he1SIM+1twR5TIrhUQn9+I6yjqD53JQjFiMf8EtC93ty0/5vJTZGF8aAocvHYNEDJajGdNx1IsQ=="
@@ -10,31 +10,92 @@
    crossorigin=""></script>    
 
 </head>
+  
+  
+    <style>
+    
+    .info {
+    padding: 10px 8px;
+    font: 30px/25px Arial, Helvetica, sans-serif;
+    background: white;
+    background: rgba(255,255,255,0.8);
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    border-radius: 10px;
+    }
+    
+   .info h4 {
+    margin: 0 0 5px;
+    color: #000;
+    }
+    
+    
+    .legend {
+    line-height: 30px;
+    color: #555;
+    }
+    
+    .legend i {
+    width: 20px;
+    height: 20px;
+    float: left;
+    margin-right: 10px;
+    opacity: 0.7;
+    }
+    
+  </style>
+  
+  
 <body>
 	<div id="map" style="height: 100%"></div>
 	<script> 
+    
+    
+        var festivalset = L.icon({
+      iconUrl: 'https://dl.dropboxusercontent.com/s/hibalsxcbgtranh/speaker.png',
+      iconSize: [30,30],
+      iconAnchor:[15,25],
+      popupAnchor:[0,-15]
+
+    });
+    
+        var djset = L.icon({
+      iconUrl: 'https://dl.dropboxusercontent.com/s/d8m93enpqhj7w0a/dj.png',
+      iconSize: [30,30],
+      iconAnchor:[15,25],
+      popupAnchor:[0,-15]
+
+    });
+    
+        var normalset = L.icon({
+      iconUrl: 'https://dl.dropboxusercontent.com/s/utsu52wniaf6u17/synth.png',
+      iconSize: [30,30],
+      iconAnchor:[15,25],
+      popupAnchor:[0,-15]
+
+    });
       
       // Markers of Tour Locations
-		var jardines = L.marker([18.608432, -99.290895]).bindPopup("Jardines de mexico");
-      	var sundance = L.marker([40.646536, -111.497854]).bindPopup("Sundance House");
-      	var trees = L.marker([32.784937, -96.784204]).bindPopup("Trees");
-        var whiteoak = L.marker([29.786069, -95.366808]).bindPopup("Downstairs at White Oak Music Hall");
-        var foro = L.marker([20.653274, -103.391068]).bindPopup("Foro Expo");
-        var steinvorth = L.marker([9.934547, -84.078028]).bindPopup("El Steinvorth");
-        var explanada = L.marker([-12.063458, -77.034162]).bindPopup("Explanada Parque de la Exposicion");
-        var fuga = L.marker([-12.144099, -77.021773]).bindPopup("FUGA");
-        var memorial = L.marker([-23.526468, -46.663638]).bindPopup("Memorial da América Latina");
-        var ciudad = L.marker([-34.544379, -58.459414]).bindPopup("Club Ciudad de Buenos Aires");
-        var espacio = L.marker([-33.450357, -70.881041]).bindPopup("Espacio Broadway");
-        var teatro = L.marker([-33.466193, -70.657869]).bindPopup("Teatro La Cúpula");
-        var c3 = L.marker([20.675143, -103.369559]).bindPopup("C3 Stage");
-        var fundidora = L.marker([25.678694, -100.28428]).bindPopup("Parque Fundidora");
-        var block = L.marker([37.759479, -122.410873]).bindPopup("20th Street Block Party");
-        var strummers = L.marker([36.759056, -119.79964]).bindPopup("Strummer's");
-        var pappy = L.marker([34.15665, -116.492513]).bindPopup("Pappy & Harriet's Palace");
-        var teragram = L.marker([34.052014, -118.266203]).bindPopup("Teragram Ballroom");
-        var bellyup = L.marker([32.990722, -117.270617]).bindPopup("Belly Up Tavern");
-        var cool = L.marker([29.852484, -97.873146]).bindPopup("Cool River Ranch");
+		var jardines = L.marker([18.608432, -99.290895],{icon: festivalset}).bindPopup("Jardines de mexico");
+
+      	var sundance = L.marker([40.646536, -111.497854], {icon: djset}).bindPopup("Sundance House");
+      	var trees = L.marker([32.784937, -96.784204],{icon: normalset}).bindPopup("Trees");
+        var whiteoak = L.marker([29.786069, -95.366808],{icon: normalset}).bindPopup("Downstairs at White Oak Music Hall");
+        var foro = L.marker([20.653274, -103.391068],{icon: normalset}).bindPopup("Foro Expo");
+        var steinvorth = L.marker([9.934547, -84.078028],{icon: festivalset}).bindPopup("El Steinvorth");
+        var explanada = L.marker([-12.063458, -77.034162],{icon: normalset}).bindPopup("Explanada Parque de la Exposicion");
+        var fuga = L.marker([-12.144099, -77.021773],{icon: normalset}).bindPopup("FUGA");
+        var memorial = L.marker([-23.526468, -46.663638],{icon: festivalset}).bindPopup("Memorial da América Latina");
+        var ciudad = L.marker([-34.544379, -58.459414],{icon: festivalset}).bindPopup("Club Ciudad de Buenos Aires");
+        var espacio = L.marker([-33.450357, -70.881041],{icon: normalset}).bindPopup("Espacio Broadway");
+        var teatro = L.marker([-33.466193, -70.657869],{icon: normalset}).bindPopup("Teatro La Cúpula");
+        var c3 = L.marker([20.675143, -103.369559],{icon: normalset}).bindPopup("C3 Stage");
+        var fundidora = L.marker([25.678694, -100.28428],{icon: festivalset}).bindPopup("Parque Fundidora");
+        var block = L.marker([37.759479, -122.410873],{icon: normalset}).bindPopup("20th Street Block Party");
+        var strummers = L.marker([36.759056, -119.79964],{icon: normalset}).bindPopup("Strummer's");
+        var pappy = L.marker([34.15665, -116.492513],{icon: normalset}).bindPopup("Pappy & Harriet's Palace");
+        var teragram = L.marker([34.052014, -118.266203],{icon: normalset}).bindPopup("Teragram Ballroom");
+        var bellyup = L.marker([32.990722, -117.270617],{icon: normalset}).bindPopup("Belly Up Tavern");
+        var cool = L.marker([29.852484, -97.873146],{icon: festivalset}).bindPopup("Cool River Ranch");
       //Layer Groups for Tour Dates 
         var Tourloc = L.layerGroup([jardines, sundance, trees, whiteoak, foro, steinvorth, explanada, fuga, memorial, ciudad, espacio, teatro, c3, fundidora, block, strummers, pappy, teragram, bellyup, cool]);
         var NorthAmerica = L.layerGroup([jardines, sundance, trees, whiteoak, foro, c3, fundidora, block, strummers, pappy, teragram, bellyup, cool]);
@@ -43,7 +104,7 @@
         var DjSet = L.layerGroup([sundance]);
   
       
-      // Stamen tile layer
+      // Stamen Light tile layer
         var Stamenlight = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}.{ext}', {
           attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
           subdomains: 'abcd',
@@ -59,10 +120,13 @@
           maxZoom: 20,
           ext: 'png'
         });
-      //Open Map Surfer Roads tile Layer
-        var OpenMapSurfer_Roads = L.tileLayer('https://korona.geog.uni-heidelberg.de/tiles/roads/x={x}&y={y}&z={z}', {
-          maxZoom: 20,
-          attribution: 'Imagery from <a href="http://giscience.uni-hd.de/">GIScience Research Group @ University of Heidelberg</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+      //Stamen Terrain tile Layer
+        var Stamenterrain = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/terrain/{z}/{x}/{y}{r}.{ext}', {
+          attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+          subdomains: 'abcd',
+          minZoom: 0,
+          maxZoom: 18,
+          ext: 'png'
         });
      
       
@@ -74,7 +138,7 @@
 		var baseMaps = {
             "Light": Stamenlight,
             "Dark": Stamendark,
-            "Open Map Surfer": OpenMapSurfer_Roads
+            "Terrain": Stamenterrain
 		};
 		var overlayMaps = {
 			"Tour Locations": Tourloc,
@@ -84,8 +148,27 @@
             "Dj Sets": DjSet,
 		};
 		L.control.layers(baseMaps, overlayMaps).addTo(map);
+
+    
+    // Legend Type 1. 
+    
+         var legend = L.control({position: 'bottomleft'});
+         legend.onAdd = function (map) {
       
-      
-  
+              var div = L.DomUtil.create('div', 'info legend'),
+              grades = ["<h7> Festival</h7>", "<h7> DJ Set</h7>", "<h7> Normal Set </h7>"],
+              labels = [ 'https://dl.dropboxusercontent.com/s/hibalsxcbgtranh/speaker.png','https://dl.dropboxusercontent.com/s/d8m93enpqhj7w0a/dj.png', 'https://dl.dropboxusercontent.com/s/utsu52wniaf6u17/synth.png'];
+           
+        // loop through our density intervals and generate a label with a colored square for 
+        //each interval
+           for (var i = 0; i < grades.length; i++) {
+            div.innerHTML +=
+              ("<img src=" + labels[i] +" height='40' width='40'>")+ grades[i] +'<br>';
+          }
+           return div;
+          };
+          legend.addTo(map);
+    
+
 	</script>
 </body>
